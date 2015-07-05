@@ -8,11 +8,11 @@ namespace SmartTiles.ViewModels
 {
     public class MainViewModel
     {
-        public string MainText { get; private set; }
+        public IEnumerable<int> Tiles { get; private set; }
 
         public MainViewModel()
         {
-            MainText = "Hello SmartTiles!";
+            Tiles = Enumerable.Range(1, 8).ToList();
         }
     }
 }

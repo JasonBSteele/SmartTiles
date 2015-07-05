@@ -1,6 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:lc="clr-namespace:SmartTiles.Controls;assembly=SmartTiles"
              x:Class="SmartTiles.Views.MainPage">
-    <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                iOS="12, 20, 0, 0"
+                Android="12, 0, 0, 0"
+                WinPhone="12, 0, 0, 0" />
+    </ContentPage.Padding>
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Label  Grid.Row="0" Text="Smart Tiles" FontSize="Large" />
+        
+        <lc:WrapView x:Name="DevicesPanel" Grid.Row="1" ItemsSource="{Binding Tiles}" Orientation="Vertical">
+            <lc:WrapView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout BackgroundColor="Blue" WidthRequest="108" HeightRequest="108" Padding="6, 6, 6, 6">
+                        <Label Text="{Binding}" FontSize="Large" XAlign="Center" TextColor="White"/>
+                    </StackLayout>
+                </DataTemplate>
+            </lc:WrapView.ItemTemplate>
+        </lc:WrapView>
+    </Grid>
 </ContentPage>
