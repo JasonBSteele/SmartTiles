@@ -13,7 +13,7 @@ namespace SmartTiles.Views
         public MainPage()
         {
             InitializeComponent();
-            this.BindingContext = new MainViewModel();
+            //this.BindingContext = new MainViewModel();
         }
     }
 }
